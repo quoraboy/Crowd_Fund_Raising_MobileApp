@@ -50,7 +50,7 @@ public class rentit extends Fragment {
 private ImageView imagePreview;
 private Button btnuploadImage;
 private TextView viewImageofcar;
-EditText odomenter,edtstart,edtend;
+EditText odomenter;
 EditText vehiclePrice;
 EditText locationOfVeicle;
 
@@ -73,11 +73,8 @@ String id;
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         View v= inflater.inflate(R.layout.rentit,container,false);
-        Bundle args = getArguments();
-        id = args.getString("id");
            chooseImage=v.findViewById(R.id.chooseImage);
-           edtend=v.findViewById(R.id.edtend);
-           edtstart = v.findViewById(R.id.edtstart);
+
            imagePreview=v.findViewById(R.id.Imagepreview);
            btnuploadImage=v.findViewById(R.id.btnuploadImage);
            viewImageofcar=v.findViewById(R.id.viewImageofcar);
@@ -213,10 +210,10 @@ String id;
                         public void onSuccess(Uri uri) {
                             String st=uri.toString();
                             String[] imagearray = {st};
-                            String start = edtstart.getText().toString();
-                            String end = edtend.getText().toString();
-                            String[] startarr = start.split("-");
-                            String[] endarr = end.split("-");
+//                            String start = edtstart.getText().toString();
+//                            String end = edtend.getText().toString();
+//                            String[] startarr = start.split("-");
+//                            String[] endarr = end.split("-");
                             Upload upload=new Upload(odomenter.getText().toString(),vehiclePrice.getText().toString(), locationOfVeicle.getText().toString(),st);
 
                             String uploadID=mDatabase.push().getKey();

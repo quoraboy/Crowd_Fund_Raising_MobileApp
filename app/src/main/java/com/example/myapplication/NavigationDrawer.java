@@ -43,6 +43,8 @@ public class NavigationDrawer extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+        fragment=new viewimage();
+        uploadfragment(fragment);
     }
 
     @Override
@@ -98,10 +100,11 @@ public class NavigationDrawer extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.viewProject) {
+            fragment=new viewimage();
 
 
         } else if (id == R.id.AddProject) {
-
+               fragment=new rentit();
         } else if (id == R.id.Profile) {
 
         } else if (id == R.id.Settings) {
