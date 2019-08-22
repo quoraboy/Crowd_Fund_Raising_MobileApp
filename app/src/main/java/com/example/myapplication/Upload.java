@@ -2,45 +2,48 @@ package com.example.myapplication;
 
 public class Upload {
 
-     private String imageodometer;
-     private String imageprice;
-     private String imagelocation;
+     private String projectname;
+     private String message;
+     private String price;
      private String imageUri;
+    private   String phoneno;
+
      public Upload()
      {
 
      }
 
-     public Upload(String imageodometer, String imageprice, String imagelocation, String imageUri)
+     public Upload(String projectname, String message, String price, String imageUri, String phoneno)
      {
-         this.imageodometer=imageodometer;
-         this.imageprice=imageprice;
-         this.imagelocation=imagelocation;
+         this.projectname =projectname;
+         this.message =message;
+         this.price =price;
          this.imageUri=imageUri;
+         this.phoneno=phoneno;
      }
 
-    public String getImageodometer() {
-        return imageodometer;
+    public String getProjectname() {
+        return projectname;
     }
 
-    public void setImageodometer(String imageodometer) {
-        this.imageodometer = imageodometer;
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
     }
 
-    public String getImageprice() {
-        return imageprice;
+    public String getMessage() {
+        return message;
     }
 
-    public void setImageprice(String imageprice) {
-        this.imageprice = imageprice;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    public String getImagelocation() {
-        return imagelocation;
+    public String getPrice() {
+        return price;
     }
 
-    public void setImagelocation(String imagelocation) {
-        this.imagelocation = imagelocation;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public String getImageUri() {
@@ -50,5 +53,14 @@ public class Upload {
     public void setImageUri(String imageUri) {
         this.imageUri = imageUri;
     }
+
+    public String getPhoneno() {
+        return phoneno;
+    }
+
+    public void setPhoneno(String phoneno) {
+        this.phoneno = phoneno;
+    }
+
 }
 

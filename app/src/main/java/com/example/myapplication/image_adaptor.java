@@ -1,11 +1,15 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.AndroidRuntimeException;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +21,7 @@ public class image_adaptor extends RecyclerView.Adapter< image_adaptor.ImageView
 
     private Context mcontext;
     private List<Upload> mUploads;
+    private int index;
 
     public image_adaptor(Context mcontext, List <Upload> mUploads) {
         this.mcontext = mcontext;
@@ -32,16 +37,41 @@ return new ImageViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ImageViewHolder imageViewHolder, int i) {
+    public void onBindViewHolder(@NonNull final ImageViewHolder imageViewHolder, final int i) {
      Upload uploadcur=mUploads.get(i);
-     imageViewHolder.view_odometer.setText(uploadcur.getImageodometer());
-     imageViewHolder.view_price.setText(uploadcur.getImageprice());
-     imageViewHolder.view_location.setText(uploadcur.getImagelocation());
+     imageViewHolder.view_odometer.setText(uploadcur.getProjectname());
+     imageViewHolder.view_price.setText(uploadcur.getMessage());
+     imageViewHolder.view_location.setText(uploadcur.getPrice());
+     imageViewHolder.phoneno.setText(uploadcur.getPhoneno());
         Picasso.with(mcontext)
                 .load(uploadcur.getImageUri())
                 .placeholder(R.drawable.photo)
                 .fit()
                 .into(imageViewHolder.imageView);
+
+        index = i;
+
+        imageViewHolder.Pay.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+            index = imageViewHolder.getAdapterPosition();
+            String mProfPhone = mUploads.get(i).getPhoneno();
+
+            Intent intent =mcontext.getPackageManager().getLaunchIntentForPackage("com.");
+//            intent.putExtra("mProfNum",mProfPhone);
+
+            try {
+            mcontext.startActivity(intent);
+            }
+            catch (AndroidRuntimeException e){
+            Log.e("Error",e.toString());
+            }
+            }
+           }
+        );
+
+
     }
 
     @Override
@@ -54,7 +84,8 @@ return new ImageViewHolder(v);
        TextView view_odometer;
        TextView view_location;
        TextView view_price;
-
+       TextView phoneno;
+       Button Pay;
 
         public ImageViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -63,6 +94,9 @@ return new ImageViewHolder(v);
           view_odometer=itemView.findViewById(R.id.view_odomenter);
           view_location=itemView.findViewById(R.id.view_location);
           view_price=itemView.findViewById(R.id.view_price);
+          phoneno=itemView.findViewById(R.id.phoneno);
+         Pay =itemView.findViewById(R.id.paynow);
+
         }
     }
 }

@@ -112,6 +112,14 @@ public class NavigationDrawer extends AppCompatActivity
         } else if (id == R.id.nav_share) {
 
         }
+        else if(id==R.id.Logout)
+        {
+            SharedPreferences preferences = getSharedPreferences("num", Context.MODE_PRIVATE);
+            preferences.edit().remove("Phone").commit();
+            Intent intent =new Intent(NavigationDrawer.this, otpsignin.class);
+            startActivity(intent);
+            finish();
+        }
         uploadfragment(fragment);
 
 

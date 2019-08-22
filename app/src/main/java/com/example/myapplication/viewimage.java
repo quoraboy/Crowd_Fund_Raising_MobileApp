@@ -52,10 +52,28 @@ public class viewimage extends Fragment {
        mDatabaseRef.addValueEventListener(new ValueEventListener() {
            @Override
            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-               for(DataSnapshot postSnapshot :dataSnapshot.getChildren())
+               Iterable<DataSnapshot> mChildren = dataSnapshot.getChildren();
+
+               for(DataSnapshot postSnapshot :mChildren)
                {
-                  Upload upload= postSnapshot.getValue(Upload.class);
-                   mUploads.add(upload);
+
+                   String ph=postSnapshot.getKey();
+                   //                   Toast.makeText(getActivity(),postSnapshot.child(postSnapshot.getKey()).child("imageUri").getValue().toString(), Toast.LENGTH_SHORT).show();
+              for(DataSnapshot post : postSnapshot.getChildren())
+           {
+               Upload upload =new Upload();
+
+    upload.setImageUri(post.child("imageUri").getValue().toString());
+    upload.setPhoneno(ph);
+    upload.setMessage(post.child("message").getValue().toString());
+    upload.setProjectname(post.child("projectname").getValue().toString());
+    upload.setPrice(post.child("price").getValue().toString());
+
+    //                   Upload upload= postSnapshot.getValue(Upload.class);
+
+          mUploads.add(upload);
+
+       }
                }
 
 //               mAdaptor =new com.example.bouncehackathon.image_adaptor(getActivity(),mUploads);

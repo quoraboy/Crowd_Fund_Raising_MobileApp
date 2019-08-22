@@ -1,7 +1,9 @@
 package com.example.myapplication;
 
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -31,9 +33,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.IOException;
 
 
@@ -50,10 +49,11 @@ public class rentit extends Fragment {
 private ImageView imagePreview;
 private Button btnuploadImage;
 private TextView viewImageofcar;
-EditText odomenter;
-EditText vehiclePrice;
-EditText locationOfVeicle;
-
+EditText projectname;
+EditText message;
+EditText price;
+    SharedPreferences sharedPreferences;
+    String phone;
 private StorageTask mUploadtask;
 private ProgressBar uploadProgress;
 String id;
@@ -74,13 +74,14 @@ String id;
                              Bundle savedInstanceState) {
         View v= inflater.inflate(R.layout.rentit,container,false);
            chooseImage=v.findViewById(R.id.chooseImage);
-
+         sharedPreferences = getActivity().getSharedPreferences("num", Context.MODE_PRIVATE);
+        phone=sharedPreferences.getString("Phone","121");     //Default value get displayed when no data is entered in main activity
            imagePreview=v.findViewById(R.id.Imagepreview);
            btnuploadImage=v.findViewById(R.id.btnuploadImage);
            viewImageofcar=v.findViewById(R.id.viewImageofcar);
-        odomenter=v.findViewById(R.id.odometer);
-       locationOfVeicle=v.findViewById(R.id.locationofVehicle);
-       vehiclePrice=v.findViewById(R.id.vehicleprice);
+        projectname =v.findViewById(R.id.odometer);
+       price =v.findViewById(R.id.locationofVehicle);
+       message =v.findViewById(R.id.vehicleprice);
    uploadProgress=v.findViewById(R.id.uploadprogress);
 
    imagePreview.setImageDrawable(getResources().getDrawable(R.drawable.photo));
@@ -214,14 +215,14 @@ String id;
 //                            String end = edtend.getText().toString();
 //                            String[] startarr = start.split("-");
 //                            String[] endarr = end.split("-");
-                            Upload upload=new Upload(odomenter.getText().toString(),vehiclePrice.getText().toString(), locationOfVeicle.getText().toString(),st);
+                            Upload upload=new Upload(projectname.getText().toString(), message.getText().toString(), price.getText().toString(),st,"");
 
-                            String uploadID=mDatabase.push().getKey();
-                            mDatabase.child(uploadID).setValue(upload);
+
+                            mDatabase.child(phone).push().setValue(upload);
                           imagePreview.setImageResource(R.drawable.photo);
-                          odomenter.setText("");
-                          locationOfVeicle.setText("");
-                          vehiclePrice.setText("");
+                          projectname.setText("");
+                          price.setText("");
+                          message.setText("");
                         }
                     });
 
