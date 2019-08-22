@@ -106,6 +106,7 @@ public class NavigationDrawer extends AppCompatActivity
         } else if (id == R.id.AddProject) {
                fragment=new rentit();
         } else if (id == R.id.Profile) {
+            fragment=new Profile();
 
         } else if (id == R.id.Settings) {
 

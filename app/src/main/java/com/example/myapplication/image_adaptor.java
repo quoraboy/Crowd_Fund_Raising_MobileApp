@@ -1,9 +1,13 @@
 package com.example.myapplication;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.SpannableString;
 import android.util.AndroidRuntimeException;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -57,10 +62,10 @@ return new ImageViewHolder(v);
             public void onClick(View view) {
             index = imageViewHolder.getAdapterPosition();
             String mProfPhone = mUploads.get(i).getPhoneno();
-
-            Intent intent =mcontext.getPackageManager().getLaunchIntentForPackage("com.");
-//            intent.putExtra("mProfNum",mProfPhone);
-
+          copytoclipboard(mProfPhone);
+//            Intent intent =mcontext.getPackageManager().getLaunchIntentForPackage("www.paytm.com");
+//intent.putExtra("mProfNum",mProfPhone);
+      Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://paytm.com"));
             try {
             mcontext.startActivity(intent);
             }
@@ -70,6 +75,21 @@ return new ImageViewHolder(v);
             }
            }
         );
+
+
+    }
+
+    private void copytoclipboard(String text)
+    {
+
+        ClipboardManager clipboard = (ClipboardManager)
+                mcontext.getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("label", text);
+//                newUri(getContentResolver(),"URI",text);
+
+        clipboard.setPrimaryClip(clip);
+
+        Toast.makeText(mcontext, "Phone number copied to Clipboard", Toast.LENGTH_SHORT).show();
 
 
     }
