@@ -5,8 +5,15 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/viewProject"
+            android:id="@+id/Dashboard"
             android:icon="@drawable/viewproject"
+
+            android:title="@string/Dashboard"
+            ></item>
+        <item
+            android:id="@+id/viewProject"
+            android:icon="@drawable/dashboard"
+
             android:title="@string/menu_home" />
         <item
             android:id="@+id/AddProject"

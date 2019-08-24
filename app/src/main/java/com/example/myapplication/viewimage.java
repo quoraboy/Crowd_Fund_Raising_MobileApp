@@ -41,7 +41,6 @@ public class viewimage extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v=inflater.inflate(R.layout.fragment_viewimage, container, false);
-     Toast.makeText(getActivity(),"We are in viewImage class",Toast.LENGTH_LONG).show();
 
       mRecycleView=v.findViewById(R.id.recycler_view);
       mRecycleView.setHasFixedSize(true);

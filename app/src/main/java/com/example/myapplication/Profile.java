@@ -45,7 +45,6 @@ public class Profile extends Fragment {
         Edit=v.findViewById(R.id.edit);
           phone=sharedPreferences.getString("Phone","121");     //Default value get displayed when no data is entered in main activity
           mdatabase =FirebaseDatabase.getInstance().getReference();
-          submit.setText("Save Information");
          sharedPreferences = getActivity().getSharedPreferences("profile", Context.MODE_PRIVATE);
        name.setText(sharedPreferences.getString("name",""));
        age.setText(sharedPreferences.getString("age",""));

@@ -121,6 +121,10 @@ public class NavigationDrawer extends AppCompatActivity
             startActivity(intent);
             finish();
         }
+        else if(id==R.id.Dashboard)
+        {
+            fragment=new Dashboard();
+        }
         uploadfragment(fragment);
 
 

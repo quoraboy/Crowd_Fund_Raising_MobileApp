@@ -25,7 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="459dp"
-        android:hint="Name" />
+        android:hint="Name"
+        android:textColorHint="#131111" />
 
     <EditText
         android:id="@+id/age"
@@ -34,6 +35,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="399dp"
         android:hint="Age"
+        android:textColorHint="#131111"
         android:textSize="20sp" />
 
     <EditText
@@ -43,6 +45,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="333dp"
         android:hint="Highest Qualification"
+        android:textColorHint="#131111"
         android:textSize="20sp" />
 
     <EditText
@@ -52,6 +55,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="268dp"
         android:hint="Oraganisation/Company"
+        android:textColorHint="#131111"
         android:textSize="20sp" />
 
     <Button
@@ -75,6 +79,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="226dp"
         android:layout_marginEnd="25dp"
+        android:textSize="20sp"
         android:text="edit"
         android:layout_marginBottom="163dp"
         android:background="@drawable/roundedbtn" />
