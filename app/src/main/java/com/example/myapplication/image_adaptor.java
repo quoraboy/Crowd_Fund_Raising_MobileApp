@@ -3,9 +3,14 @@ package com.example.myapplication;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
 import android.util.AndroidRuntimeException;
@@ -15,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,7 +62,7 @@ return new ImageViewHolder(v);
 
         index = i;
 
-        imageViewHolder.Pay.setOnClickListener(new View.OnClickListener() {
+        imageViewHolder.layout.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
@@ -65,16 +71,49 @@ return new ImageViewHolder(v);
           copytoclipboard(mProfPhone);
 //            Intent intent =mcontext.getPackageManager().getLaunchIntentForPackage("www.paytm.com");
 //intent.putExtra("mProfNum",mProfPhone);
-      Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://paytm.com"));
-            try {
-            mcontext.startActivity(intent);
-            }
-            catch (AndroidRuntimeException e){
-            Log.e("Error",e.toString());
-            }
+                InternetAlert(mUploads, i);
+
             }
            }
         );
+
+
+    }
+
+
+
+    public void InternetAlert(List<Upload> mUp, int i)
+    {
+
+           String p= mUp.get(i).getPhoneno();
+           String m=mUp.get(i).getMessage();
+           String pro=mUp.get(i).getProjectname();
+           String price =mUp.get(i).getPrice();
+            AlertDialog.Builder dialog = new AlertDialog.Builder(mcontext);
+            dialog.setMessage(pro + "/n" + m + "/n" + p+ "/n" + price );
+            dialog.setPositiveButton("Pay", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://paytm.com"));
+                    try {
+                        mcontext.startActivity(intent);
+                    }
+                    catch (AndroidRuntimeException e){
+                        Log.e("Error",e.toString());
+                    }
+                }
+            });
+            dialog.setNegativeButton("I don't want to pay", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+                    // TODO Auto-generated method stub
+
+                }
+            });
+            dialog.show();
+
+
 
 
     }
@@ -106,16 +145,14 @@ return new ImageViewHolder(v);
        TextView view_price;
        TextView phoneno;
        Button Pay;
+       LinearLayout layout;
 
         public ImageViewHolder(@NonNull View itemView) {
             super(itemView);
 
           imageView=itemView.findViewById(R.id.image_View);
           view_odometer=itemView.findViewById(R.id.view_odomenter);
-          view_location=itemView.findViewById(R.id.view_location);
-          view_price=itemView.findViewById(R.id.view_price);
-          phoneno=itemView.findViewById(R.id.phoneno);
-         Pay =itemView.findViewById(R.id.paynow);
+          layout=itemView.findViewById(R.id.layoutimage);
 
         }
     }

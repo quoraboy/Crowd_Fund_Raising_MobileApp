@@ -13,7 +13,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/layoutimage">
 
 
         <ImageView
@@ -33,42 +34,9 @@
             android:hint="project name"
             android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/view_price"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#84FFFFFF"
-            android:gravity="center_horizontal"
-            android:hint="message"
-            android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/view_location"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#BDFFFFFF"
-            android:gravity="center_horizontal"
-            android:hint="price"
-            android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/phoneno"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#69FFFFFF"
-            android:gravity="center_horizontal"
-            android:hint="Phone number"
-            android:textIsSelectable="true"
-            android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/paynow"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/roundedbtn"
-            android:text="Pay Now" />
 
     </LinearLayout>
 

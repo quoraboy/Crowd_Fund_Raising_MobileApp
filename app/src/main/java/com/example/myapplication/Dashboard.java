@@ -29,19 +29,19 @@ public class Dashboard extends Fragment {
    String phone;
     private List <Upload> mUploads;
 
-    private RecyclerView mRecycleView;
+    private RecyclerView mRecycleView1;
     private image_adaptor mAdaptor;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v= inflater.inflate(R.layout.activity_profile,container,false);
+        View v= inflater.inflate(R.layout.activity_dashboard,container,false);
         sharedPreferences = getActivity().getSharedPreferences("num", Context.MODE_PRIVATE);
         phone=sharedPreferences.getString("Phone","121");     //Default value get displayed when no data is entered in main activity
         mUploads=new ArrayList <>();
-        mRecycleView=v.findViewById(R.id.recycler_view2);
-        mRecycleView.setHasFixedSize(true);
-        mRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecycleView1=v.findViewById(R.id.recycler_view2);
+        mRecycleView1.setHasFixedSize(true);
+        mRecycleView1.setLayoutManager(new LinearLayoutManager(getActivity()));
         mdataref= FirebaseDatabase.getInstance().getReference("Upload").child(phone);
        mdataref.addValueEventListener(new ValueEventListener() {
            @Override
@@ -49,6 +49,7 @@ public class Dashboard extends Fragment {
               for(DataSnapshot post:dataSnapshot.getChildren())
               {
                     Upload upload=new Upload();
+                       upload.setPhoneno(phone);
                         upload.setImageUri(post.child("imageUri").getValue().toString());
                         upload.setProjectname(post.child("projectname").getValue().toString());
                         upload.setPrice(post.child("price").getValue().toString());
@@ -58,7 +59,7 @@ public class Dashboard extends Fragment {
 
               }
                mAdaptor=new image_adaptor(getActivity(),mUploads);
-               mRecycleView.setAdapter(mAdaptor);
+               mRecycleView1.setAdapter(mAdaptor);
            }
 
            @Override
