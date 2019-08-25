@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardBackgroundColor="@color/lightblue">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,12 +12,13 @@
         android:orientation="vertical">
 
 
-    <ImageView
-        android:id="@+id/img"
-        android:layout_width="330dp"
-        android:layout_height="220dp"
-        android:layout_gravity="center|center_horizontal"
-        android:src="@drawable/photo" />
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="330dp"
+            android:layout_height="220dp"
+            android:layout_gravity="center|center_horizontal"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/photo" />
 
         <TextView
             android:id="@+id/view_odomenter1"
@@ -26,31 +29,30 @@
             android:gravity="center_horizontal"
             android:hint="project name"
             android:textSize="20sp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/del"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Delete"
-                android:id="@+id/del"
-                android:background="@drawable/roundbtn2"/>
+                android:background="@drawable/roundbtn2"
+                android:text="Delete" />
 
             <Button
                 android:id="@+id/edt"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Edit"
                 android:background="@drawable/roundbtn2"
-                />
-
+                android:text="Edit" />
 
 
         </LinearLayout>
-            </LinearLayout>
+    </LinearLayout>
 
 </android.support.v7.widget.CardView>
