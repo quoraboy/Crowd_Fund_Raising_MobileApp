@@ -69,8 +69,8 @@ return new ImageViewHolder(v);
           copytoclipboard(mProfPhone);
 //            Intent intent =mcontext.getPackageManager().getLaunchIntentForPackage("www.paytm.com");
 //intent.putExtra("mProfNum",mProfPhone);
-                InternetAlert(mUploads, i);
-
+                CustomDialogClass cdd=new CustomDialogClass(view.getContext(),mUploads,i);
+                cdd.show();
             }
            }
         );
