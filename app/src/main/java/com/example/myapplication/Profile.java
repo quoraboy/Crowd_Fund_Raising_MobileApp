@@ -14,8 +14,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Profile extends Fragment {
    EditText name;
@@ -30,6 +33,7 @@ public class Profile extends Fragment {
     String t;
     String phone;
     profileinfo profileinfo;
+    DatabaseReference mdef;
 
      @Nullable
     @Override
@@ -51,6 +55,29 @@ public class Profile extends Fragment {
        organisation.setText(sharedPreferences.getString("organisation",""));
        qualification.setText(sharedPreferences.getString("qualification",""));
        t=sharedPreferences.getString("t","0");
+      mdef=FirebaseDatabase.getInstance().getReference().child(phone);
+       mdef.addValueEventListener(new ValueEventListener() {
+           @Override
+           public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+//               Toast.makeText(getContext(),dataSnapshot.child("age").getValue().toString() , Toast.LENGTH_SHORT).show();
+              age.setText(dataSnapshot.child("age").getValue().toString());
+              name.setText(dataSnapshot.child("name").getValue().toString());
+              organisation.setText(dataSnapshot.child("organization").getValue().toString());
+              qualification.setText(dataSnapshot.child("qualification").getValue().toString());
+
+           }
+
+           @Override
+           public void onCancelled(@NonNull DatabaseError databaseError) {
+
+           }
+       });
+
+
+
+
+
        if(t.equals("1")) {
             name.setEnabled(false);
             age.setEnabled(false);

@@ -30,7 +30,7 @@ public class Dashboard extends Fragment {
     private List <Upload> mUploads;
 
     private RecyclerView mRecycleView1;
-    private image_adaptor mAdaptor;
+    private dashboardadapter mAdaptor;
 
     @Nullable
     @Override
@@ -49,6 +49,7 @@ public class Dashboard extends Fragment {
               for(DataSnapshot post:dataSnapshot.getChildren())
               {
                     Upload upload=new Upload();
+                    upload.key=post.getKey();
                        upload.setPhoneno(phone);
                         upload.setImageUri(post.child("imageUri").getValue().toString());
                         upload.setProjectname(post.child("projectname").getValue().toString());
@@ -58,7 +59,7 @@ public class Dashboard extends Fragment {
                   mUploads.add(upload);
 
               }
-               mAdaptor=new image_adaptor(getActivity(),mUploads);
+               mAdaptor=new dashboardadapter(getActivity(),mUploads);
                mRecycleView1.setAdapter(mAdaptor);
            }
 

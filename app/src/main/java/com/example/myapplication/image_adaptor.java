@@ -43,8 +43,8 @@ public class image_adaptor extends RecyclerView.Adapter< image_adaptor.ImageView
     @NonNull
     @Override
     public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-View v= LayoutInflater.from(mcontext).inflate(R.layout.image_item,viewGroup,false);
-return new ImageViewHolder(v);
+      View v= LayoutInflater.from(mcontext).inflate(R.layout.image_item,viewGroup,false);
+      return new ImageViewHolder(v);
     }
 
     @Override
@@ -137,8 +137,8 @@ return new ImageViewHolder(v);
     }
 
     public class ImageViewHolder extends RecyclerView.ViewHolder {
-       ImageView imageView;
-       TextView view_odometer;
+      private ImageView imageView;
+      private   TextView view_odometer;
 
        LinearLayout layout;
 
