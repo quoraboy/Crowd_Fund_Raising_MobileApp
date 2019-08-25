@@ -51,9 +51,7 @@ return new ImageViewHolder(v);
     public void onBindViewHolder(@NonNull final ImageViewHolder imageViewHolder, final int i) {
      Upload uploadcur=mUploads.get(i);
      imageViewHolder.view_odometer.setText(uploadcur.getProjectname());
-     imageViewHolder.view_price.setText(uploadcur.getMessage());
-     imageViewHolder.view_location.setText(uploadcur.getPrice());
-     imageViewHolder.phoneno.setText(uploadcur.getPhoneno());
+
         Picasso.with(mcontext)
                 .load(uploadcur.getImageUri())
                 .placeholder(R.drawable.photo)
@@ -90,7 +88,7 @@ return new ImageViewHolder(v);
            String pro=mUp.get(i).getProjectname();
            String price =mUp.get(i).getPrice();
             AlertDialog.Builder dialog = new AlertDialog.Builder(mcontext);
-            dialog.setMessage(pro + "/n" + m + "/n" + p+ "/n" + price );
+            dialog.setMessage(pro + "\n" + m + "\n" + p+ "\n" + price );
             dialog.setPositiveButton("Pay", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface paramDialogInterface, int paramInt) {
@@ -141,10 +139,7 @@ return new ImageViewHolder(v);
     public class ImageViewHolder extends RecyclerView.ViewHolder {
        ImageView imageView;
        TextView view_odometer;
-       TextView view_location;
-       TextView view_price;
-       TextView phoneno;
-       Button Pay;
+
        LinearLayout layout;
 
         public ImageViewHolder(@NonNull View itemView) {
