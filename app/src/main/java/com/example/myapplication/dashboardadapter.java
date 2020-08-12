@@ -52,11 +52,14 @@ public class dashboardadapter extends RecyclerView.Adapter <dashboardadapter.Ima
 
             @Override
             public void onClick(View view) {
+
                 index = imageViewHolder.getAdapterPosition();
                 String mProfPhone = mUploads.get(i).getPhoneno();
                 DatabaseReference mdta= FirebaseDatabase.getInstance().getReference("Upload").child(mProfPhone).child(mUploads.get(i).key);
 
                mdta.removeValue();
+
+
             }
         }
         );

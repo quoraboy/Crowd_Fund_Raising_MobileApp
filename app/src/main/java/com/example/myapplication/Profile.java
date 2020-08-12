@@ -48,31 +48,31 @@ public class Profile extends Fragment {
           sharedPreferences = getActivity().getSharedPreferences("num", Context.MODE_PRIVATE);
         Edit=v.findViewById(R.id.edit);
           phone=sharedPreferences.getString("Phone","121");     //Default value get displayed when no data is entered in main activity
-          mdatabase =FirebaseDatabase.getInstance().getReference();
+//          mdatabase =FirebaseDatabase.getInstance().getReference();
          sharedPreferences = getActivity().getSharedPreferences("profile", Context.MODE_PRIVATE);
        name.setText(sharedPreferences.getString("name",""));
        age.setText(sharedPreferences.getString("age",""));
        organisation.setText(sharedPreferences.getString("organisation",""));
        qualification.setText(sharedPreferences.getString("qualification",""));
        t=sharedPreferences.getString("t","0");
-      mdef=FirebaseDatabase.getInstance().getReference().child(phone);
-       mdef.addValueEventListener(new ValueEventListener() {
-           @Override
-           public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-//               Toast.makeText(getContext(),dataSnapshot.child("age").getValue().toString() , Toast.LENGTH_SHORT).show();
-              age.setText(dataSnapshot.child("age").getValue().toString());
-              name.setText(dataSnapshot.child("name").getValue().toString());
-              organisation.setText(dataSnapshot.child("organization").getValue().toString());
-              qualification.setText(dataSnapshot.child("qualification").getValue().toString());
-
-           }
-
-           @Override
-           public void onCancelled(@NonNull DatabaseError databaseError) {
-
-           }
-       });
+//      mdef=FirebaseDatabase.getInstance().getReference().child(phone);
+//       mdef.addValueEventListener(new ValueEventListener() {
+//           @Override
+//           public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+////               Toast.makeText(getContext(),dataSnapshot.child("age").getValue().toString() , Toast.LENGTH_SHORT).show();
+//              age.setText(dataSnapshot.child("age").getValue().toString());
+//              name.setText(dataSnapshot.child("name").getValue().toString());
+//              organisation.setText(dataSnapshot.child("organization").getValue().toString());
+//              qualification.setText(dataSnapshot.child("qualification").getValue().toString());
+//
+//           }
+//
+//           @Override
+//           public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//           }
+//       });
 
 
 
@@ -89,7 +89,7 @@ public class Profile extends Fragment {
            public void onClick(View v) {
 
                  profileinfo = new profileinfo(name.getText().toString().trim(), age.getText().toString().trim(), qualification.getText().toString().trim(), organisation.getText().toString().trim());
-                 mdatabase.child(phone).setValue(profileinfo);
+//                 mdatabase.child(phone).setValue(profileinfo);
                  sharedPreferences = getActivity().getSharedPreferences("profile", Context.MODE_PRIVATE);
 
                  editor = sharedPreferences.edit();

@@ -7,6 +7,8 @@ public class Upload {
      private String price;
      private String imageUri;
     private   String phoneno;
+    private  String En;
+    private String address;
     public  String key;
 
      public Upload()
@@ -14,14 +16,34 @@ public class Upload {
 
      }
 
-     public Upload(String projectname, String message, String price, String imageUri, String phoneno)
+       public Upload(String projectname, String message, String price, String imageUri, String phoneno, String En, String address)
      {
+
+         this.En=En;
+         this.address=address;
          this.projectname =projectname;
          this.message =message;
          this.price =price;
          this.imageUri=imageUri;
          this.phoneno=phoneno;
      }
+
+
+    public String getEn() {
+        return En;
+    }
+
+    public void setEn(String en) {
+        En = en;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public String getProjectname() {
         return projectname;

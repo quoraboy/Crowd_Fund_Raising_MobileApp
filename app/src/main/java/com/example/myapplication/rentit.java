@@ -52,6 +52,8 @@ private TextView viewImageofcar;
 EditText projectname;
 EditText message;
 EditText price;
+EditText adree;
+EditText Ennumber;
     SharedPreferences sharedPreferences;
     String phone;
 private StorageTask mUploadtask;
@@ -83,7 +85,8 @@ String id;
        price =v.findViewById(R.id.locationofVehicle);
        message =v.findViewById(R.id.vehicleprice);
    uploadProgress=v.findViewById(R.id.uploadprogress);
-
+    adree=v.findViewById(R.id.adree);
+    Ennumber=v.findViewById(R.id.enginenumber);
    imagePreview.setImageDrawable(getResources().getDrawable(R.drawable.photo));
 
 
@@ -215,14 +218,15 @@ String id;
 //                            String end = edtend.getText().toString();
 //                            String[] startarr = start.split("-");
 //                            String[] endarr = end.split("-");
-                            Upload upload=new Upload(projectname.getText().toString(), message.getText().toString(), price.getText().toString(),st,"");
-
+                            Upload upload=new Upload(projectname.getText().toString(), message.getText().toString(), price.getText().toString(),st,"",Ennumber.getText().toString(),adree.getText().toString());
 
                             mDatabase.child(phone).push().setValue(upload);
                           imagePreview.setImageResource(R.drawable.photo);
                           projectname.setText("");
                           price.setText("");
                           message.setText("");
+                          Ennumber.setText("");
+                          adree.setText("");
                         }
                     });
 

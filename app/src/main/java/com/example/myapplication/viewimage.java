@@ -67,7 +67,8 @@ public class viewimage extends Fragment {
     upload.setMessage(post.child("message").getValue().toString());
     upload.setProjectname(post.child("projectname").getValue().toString());
     upload.setPrice(post.child("price").getValue().toString());
-
+     upload.setAddress(post.child("address").getValue().toString());
+     upload.setEn(post.child("en").getValue().toString());
     //                   Upload upload= postSnapshot.getValue(Upload.class);
 
           mUploads.add(upload);

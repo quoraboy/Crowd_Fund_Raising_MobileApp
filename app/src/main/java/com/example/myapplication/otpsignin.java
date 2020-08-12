@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -218,5 +220,33 @@ public class otpsignin extends AppCompatActivity {
                 });
     }
 
+    int backButtonCount = 0;
+    @Override
+    public void onBackPressed() {
+        backButtonCount++;
+//        Toast.makeText(this,String.valueOf(backButtonCount) , Toast.LENGTH_SHORT).show();
+//        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+//        if (drawer.isDrawerOpen(GravityCompat.START)) {
+//            drawer.closeDrawer(GravityCompat.START);
+//            backButtonCount=0;
+//        }
+        if(backButtonCount > 1)
+        {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+//            Toast.makeText(this, "aaaaaaaaaaa", Toast.LENGTH_SHORT).show();
+            backButtonCount=0;
+        }
+        else
+        {
+            Toast.makeText(this, "Press the back button once again to close the application.", Toast.LENGTH_SHORT).show();
+//            backButtonCount++;
+        }
+//        else {
+//            super.onBackPressed();
+//        }
+    }
 
 }

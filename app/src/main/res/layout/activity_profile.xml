@@ -67,7 +67,7 @@
                android:text="submit"
         android:layout_marginStart="0dp"
         android:layout_marginBottom="160dp"
-        android:background="@drawable/roundedbtn"
+        android:background="@drawable/gradient_button"
         android:textSize="20sp" />
 
     <Button
@@ -82,5 +82,5 @@
         android:textSize="20sp"
         android:text="edit"
         android:layout_marginBottom="163dp"
-        android:background="@drawable/roundedbtn" />
+        android:background="@drawable/gradient_button" />
 </RelativeLayout>

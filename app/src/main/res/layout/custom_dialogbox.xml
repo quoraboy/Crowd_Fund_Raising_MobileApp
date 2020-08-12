@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+    android:background="@drawable/gradient_bagpop">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +18,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Project Name"/>
+            android:text="Name:" />
 
         <TextView
             android:id="@+id/name1"
@@ -34,7 +35,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Message:"/>
+            android:text="Message:" />
+
         <TextView
             android:id="@+id/message1"
             android:layout_width="match_parent"
@@ -46,10 +48,11 @@
             android:layout_weight="0"
             android:hint="Message"
             android:textSize="20sp" />
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Fund needed:"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Renting Price:" />
 
         <TextView
             android:id="@+id/price1"
@@ -66,7 +69,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Phone Number:"/>
+            android:text="Phone Number:" />
 
         <TextView
             android:id="@+id/phoneno1"
@@ -79,39 +82,90 @@
             android:layout_weight="0"
             android:hint="Phone number"
             android:textSize="20sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Address:"/>
 
-             <LinearLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:orientation="horizontal">
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address"
+            android:textSize="20sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Engine Number"/>
 
-                 <Button
-                     android:id="@+id/payy"
-                     android:layout_width="wrap_content"
-                     android:layout_height="match_parent"
-                     android:layout_alignStart="@+id/name1"
-                     android:layout_alignEnd="@+id/exit"
-                     android:layout_alignParentBottom="true"
-                     android:layout_weight="1"
-                     android:background="@drawable/roundedbtn"
-                     android:text="PAY"
-                     android:textSize="20sp" />
+        <TextView
+            android:id="@+id/Engine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Engine Number"
+            android:textSize="20sp" />
 
-                 <Button
-                     android:id="@+id/exit"
-                     android:layout_width="wrap_content"
-                     android:layout_height="match_parent"
-                     android:layout_alignParentStart="true"
-                     android:layout_alignParentEnd="true"
-                     android:layout_alignParentBottom="true"
-                     android:layout_weight="1"
-                     android:background="@drawable/roundedbtn"
-                     android:text="EXIT"
-                     android:textSize="20sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="55dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/payy"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignStart="@+id/name1"
+                android:layout_alignEnd="@+id/exit"
+                android:layout_alignParentBottom="true"
+                android:layout_weight="1"
+                android:background="@drawable/gradient_button"
+                android:text="Pay"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/exit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_weight="1"
+                android:background="@drawable/gradient_button"
+                android:text="EXIT"
+                android:textSize="20sp" />
 
 
-             </LinearLayout>
-            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/show"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/gradient_button"
+                android:text="Show"
+                android:textSize="20sp" />
+
+            <Button
+                android:textSize="20dp"
+                android:text="Book"
+                android:id="@+id/book"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/gradient_button" />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
 
 </RelativeLayout>
 

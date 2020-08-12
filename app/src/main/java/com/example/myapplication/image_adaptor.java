@@ -92,7 +92,7 @@ public class image_adaptor extends RecyclerView.Adapter< image_adaptor.ImageView
             dialog.setPositiveButton("Pay", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface paramDialogInterface, int paramInt) {
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://paytm.com"));
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(""));
                     try {
                         mcontext.startActivity(intent);
                     }

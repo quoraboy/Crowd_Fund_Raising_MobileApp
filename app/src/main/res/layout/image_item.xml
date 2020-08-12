@@ -9,9 +9,10 @@
     android:layout_gravity="center_horizontal"
     android:layout_marginTop="10dp"
     android:layout_marginBottom="5dp"
-    app:cardBackgroundColor="@color/lightblue">
+  >
 
     <LinearLayout
+        android:background="@drawable/gradient_bagpop1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
